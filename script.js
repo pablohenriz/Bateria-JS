@@ -2,6 +2,17 @@ document.body.addEventListener("keyup", (event) => {
     playSound(event.code.toLowerCase());
 });
 
+//Parte para quando o usuario digitar algo no input e clicar no botão
+document.querySelector(".composer button").addEventListener("click", () => {
+    let song = document.querySelector("#input").value;
+
+    if (song !== "") {
+        let songArray = song.split("");
+        playComposition(songArray);
+    }
+});
+
+//Função para tocar o som quando clicar em algumas teclas do teclado
 function playSound(sound) {
     let audioElement = document.querySelector(`#s_${sound}`);
     let keyElement = document.querySelector(`div[data-key="${sound}"]`);
@@ -15,6 +26,19 @@ function playSound(sound) {
 
         setTimeout(() => {
             keyElement.classList.remove("active");
-        }, 200);
+        }, 300);
     }
-} //Fazer a parte de input para poder escrever acordes de som e sair o som quando escrever de forma que seja uma sequencia de acordo com o conjunto de palavras
+} 
+
+//Função para tocar a composição digitada no input 
+function playComposition(songArray) {
+
+    let wait = 0;
+
+    for(let songItem of songArray) {
+        setTimeout (() => {
+            playSound(`key${songItem}`);
+        }  , wait);
+        wait += 250;
+    }
+}
