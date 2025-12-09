@@ -1,3 +1,7 @@
+:root {
+    --prime-color: #442fff;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -14,9 +18,11 @@ body {
 }
 
 h1 {
-    color: #FFF;
-    margin-bottom: 20px;
+    color: var(--prime-color);
+    margin-bottom: 30px;
+    font-size: 50px;
 }
+
 .keys {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -26,7 +32,7 @@ h1 {
     width: 80px;
     height: 80px;
     border: 2px solid #FFF;
-    color: #FFF;
+    color: var(--prime-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,8 +40,8 @@ h1 {
     font-weight: bold;
 }
 .key.active {
-    border: 2px solid #FF0;
-    color: #FF0;
+    border: 2px solid var(--prime-color);
+    color: #FFF;
 }
 
 .composer {
@@ -60,6 +66,7 @@ h1 {
 }
 .composer button:hover {
     background-color: rgba(0, 0, 0, 0.2);
+    color: var(--prime-color);
 }
 
 footer {
